@@ -8,11 +8,11 @@ export async function POST(request) {
     requireSameOrigin(request);
     const { email, password } = await readBody(request);
     if (typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) || email.length > 254 || typeof password !== 'string' || !password || password.length > 512) throw new AppError('Enter your ByteFX email and password.');
-    rateLimitLogin(email.trim());
+    await rateLimitLogin(email.trim());
     const { token, profile } = await authenticate(email.trim(), password);
     await createSession(token, profile);
-    ensureGiveaway(profile.id);
-    clearLoginAttempts(email.trim());
+    await ensureGiveaway(profile.id);
+    await clearLoginAttempts(email.trim());
     return json({ profile: { id: profile.id, name: profile.name } });
   } catch (error) { return failure(error); }
 }

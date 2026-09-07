@@ -9,13 +9,15 @@
     "lint": "eslint",
     "verify": "node scripts/verify-draw.mjs",
     "verify:api": "node scripts/verify-api.mjs",
-    "verify:clients": "node scripts/verify-client-data.mjs"
+    "verify:clients": "node scripts/verify-client-data.mjs",
+    "db:setup": "node database/setup-neon.mjs"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^13.2.0",
     "libphonenumber-js": "1.13.12",
     "next": "15.5.25",
+    "pg": "^8.23.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

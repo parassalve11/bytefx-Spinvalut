@@ -23,6 +23,12 @@ npm run verify                 # draw maths, fairness, filters, masking
 npm run build
 ```
 
+## Vercel deployment
+
+Vercel requires a Neon PostgreSQL database plus a stable session secret.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the exact environment variables and setup.
+Local SQLite and `/tmp` are not durable storage on Vercel.
+
 ## Architecture
 
 ```
@@ -193,7 +199,8 @@ lib/
   server/
     bytefx.js            ByteFX client, normalisation, full pagination
     session.js           session lifecycle, IB verification, rate limiting
-    store.js             SQLite + AES-256-GCM token encryption
+    store.js             SQLite/PostgreSQL adapter + AES-256-GCM encryption
+    postgres.js          Neon connections, schema, and transactions
     draws.js             giveaways, snapshots, selection, history
 scripts/
   verify-draw.mjs        the checks behind `npm run verify`
@@ -253,7 +260,7 @@ integer step in `tailwind.config.js`.
 
 Multiple named giveaways in the UI (the API supports them; the page uses one
 per IB), CSV import, payments/CRM, on-chain proof of fairness, analytics, i18n,
-and deployment config. The fairness note in the footer describes only what the
+and production application hosting. The fairness note in the footer describes only what the
 app actually does today: a CSPRNG pick made and recorded before the reel moves.
 
 ## Still to confirm with ByteFX

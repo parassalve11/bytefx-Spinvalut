@@ -9,6 +9,8 @@ import { normalizeAccounts, normalizeClientStatus, countryDetails } from '../lib
 import { phoneCountry } from '../lib/server/phoneCountry.js';
 import { maskAccounts, maskPhone } from '../lib/mask.js';
 
+delete process.env.DATABASE_URL;
+delete process.env.VERCEL;
 mkdirSync('.review', { recursive: true });
 process.env.SPINVAULT_DATA_DIR = mkdtempSync(resolve('.review/client-test-'));
 process.env.SPINVAULT_SESSION_SECRET = 'synthetic-client-test-secret-not-for-production';
@@ -30,17 +32,17 @@ try {
   console.log('ok account lists, masked phones, explicit status and country flags');
 
   const session = { token: 'fixture-ib', profile: { id: 'test-ib' } };
-  const giveaway = ensureGiveaway(session.profile.id);
+  const giveaway = await ensureGiveaway(session.profile.id);
   const pool = await createPool(session, { giveawayId: giveaway.id, levels: [1, 2, 3, 4, 5, 6, 7] });
   assert.deepEqual(pool.availableLevels, [1, 2, 3]);
   assert.deepEqual(pool.counts, { 1: 1, 2: 2, 3: 1, 4: 0, 5: 0, 6: 0, 7: 0 });
   assert.equal(pool.participants.length, 3);
   assert.equal(pool.participants[0].phone, fixtureClients[0].phone);
-  const masked = getPool(session.profile.id, pool.id, true);
+  const masked = await getPool(session.profile.id, pool.id, true);
   for (const client of masked.participants) assert.ok(client.phone.includes('•'));
   assert.equal(masked.participants[0].region, 'IN');
   assert.equal(masked.participants[0].regionSource, 'phone');
-  const unmasked = getPool(session.profile.id, pool.id, false);
+  const unmasked = await getPool(session.profile.id, pool.id, false);
   assert.equal(unmasked.participants[0].clientId, '100101, 100102');
   assert.equal(unmasked.participants[0].phone, fixtureClients[0].phone);
   const requestCount = fixture.state.requests.length;
@@ -49,24 +51,25 @@ try {
   assert.equal(subset.created, pool.created, 'switching levels cannot extend snapshot lifetime');
   await assert.rejects(createPool(session, { giveawayId: giveaway.id, levels: [2], sourceSnapshotId: subset.id }), /refresh/);
   const anotherSession = { ...session, profile: { id: 'another-ib' } };
-  const anotherGiveaway = ensureGiveaway('another-ib');
+  const anotherGiveaway = await ensureGiveaway('another-ib');
   await assert.rejects(createPool(anotherSession, { giveawayId: anotherGiveaway.id, levels: [1], sourceSnapshotId: pool.id }), /refresh/);
   assert.equal(subset.participants.length, 1);
   assert.deepEqual(subset.availableLevels, [1, 2, 3]);
-  assert.throws(() => getPool('another-ib', pool.id), /refresh/);
+  await assert.rejects(getPool('another-ib', pool.id), /refresh/);
   console.log('ok complete network counts, subset selection, deduplication and IB isolation');
 
   const input = { requestId: randomUUID(), giveawayId: giveaway.id, snapshotId: pool.id, mode: 'quick', criteria: { hideSensitive: true } };
-  const draw = selectWinner(session.profile.id, input);
+  const [draw, retry] = await Promise.all([selectWinner(session.profile.id, input), selectWinner(session.profile.id, input)]);
+  assert.equal(retry.id, draw.id, 'concurrent retries must record one winner');
   assert.ok(draw.winner.phone.includes('•'));
-  assert.equal(selectWinner(session.profile.id, input).winner.id, draw.winner.id);
+  assert.equal((await selectWinner(session.profile.id, input)).winner.id, draw.winner.id);
   assert.equal(draw.participants[draw.winnerIndex].id, draw.winner.id);
-  completeDraw(session.profile.id, draw.id);
-  const repeat = selectWinner(session.profile.id, { ...input, requestId: randomUUID(), snapshotId: subset.id, criteria: { hideSensitive: false, excludePreviousWinners: true } });
-  completeDraw(session.profile.id, repeat.id);
-  const again = selectWinner(session.profile.id, { ...input, requestId: randomUUID(), snapshotId: subset.id });
+  await completeDraw(session.profile.id, draw.id);
+  const repeat = await selectWinner(session.profile.id, { ...input, requestId: randomUUID(), snapshotId: subset.id, criteria: { hideSensitive: false, excludePreviousWinners: true } });
+  await completeDraw(session.profile.id, repeat.id);
+  const again = await selectWinner(session.profile.id, { ...input, requestId: randomUUID(), snapshotId: subset.id });
   assert.equal(again.winner.id, repeat.winner.id, 'previous winner stays eligible even with legacy exclusion input');
-  completeDraw(session.profile.id, again.id);
+  await completeDraw(session.profile.id, again.id);
   const realNow = Date.now;
   Date.now = () => pool.created + 16 * 60 * 1000;
   try { await assert.rejects(createPool(session, { giveawayId: giveaway.id, levels: [1], sourceSnapshotId: pool.id }), /refresh/); }

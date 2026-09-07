@@ -7,6 +7,6 @@ export async function POST(request) {
   catch (error) { return failure(error); }
 }
 export async function GET(request) {
-  try { const session = await requireIb(); const query = new URL(request.url).searchParams; return json(getPool(session.profile.id, query.get('id'), query.get('hideSensitive') === 'true')); }
+  try { const session = await requireIb(); const query = new URL(request.url).searchParams; return json(await getPool(session.profile.id, query.get('id'), query.get('hideSensitive') === 'true')); }
   catch (error) { return failure(error); }
 }

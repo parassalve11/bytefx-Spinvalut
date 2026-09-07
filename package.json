@@ -1,0 +1,33 @@
+{
+  "name": "spinvault",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "verify": "node scripts/verify-draw.mjs",
+    "verify:api": "node scripts/verify-api.mjs",
+    "verify:clients": "node scripts/verify-client-data.mjs"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "framer-motion": "^13.2.0",
+    "libphonenumber-js": "1.13.12",
+    "next": "15.5.25",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "autoprefixer": "^10.5.5",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.25",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

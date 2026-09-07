@@ -1,0 +1,844 @@
+{
+  "info": {
+    "_postman_id": "5a421290-6bbf-41db-b5b3-d512fc541fa8",
+    "name": "ByteFX API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24325719",
+    "_collection_link": "https://go.postman.co/collection/24325719-5a421290-6bbf-41db-b5b3-d512fc541fa8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "harsh@techysquad.com",
+              "type": "text",
+              "uuid": "c00b82ce-1046-4876-82f6-9fcf96068ceb"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "35f37400-afe5-4010-a889-040af18bf704"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://my.bytefx.com/api/login",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "dev",
+              "type": "text",
+              "uuid": "2949fbf5-aa2a-420f-8d66-7e0ff5a28399"
+            },
+            {
+              "key": "email",
+              "value": "testapiacc@demo.com",
+              "type": "text",
+              "uuid": "830fdac1-2f3d-4cf8-9d1c-21239d3bb823"
+            },
+            {
+              "key": "password",
+              "value": "Dev@2399300",
+              "type": "text",
+              "uuid": "25471e8d-4ef8-43b7-a2ed-19c5f27fa78d"
+            },
+            {
+              "key": "phone",
+              "value": "9876543210",
+              "type": "text",
+              "uuid": "6ec75b7e-1136-4e66-ba7f-a9500d48857b"
+            },
+            {
+              "key": "country",
+              "value": "India",
+              "type": "text",
+              "uuid": "a633cd72-7aae-451c-ad84-b3f2df0d4f1f"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://my.bytefx.com/api/register",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Details",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/userdetails",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "userdetails"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Account List",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/accountlist",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "accountlist"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Account details",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/accountdetails/100015",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "accountdetails",
+            "100015"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Open Live Acccount",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "group",
+              "value": "ByteFX\\STAR\\Standard",
+              "type": "text",
+              "uuid": "4fe83a3a-992d-4e1a-a5ad-f3e789132038"
+            },
+            {
+              "key": "leverage",
+              "value": "100",
+              "type": "text",
+              "uuid": "af50c84c-3373-4c66-a998-14ba4c8defbd"
+            },
+            {
+              "key": "main_password",
+              "value": "Devv@999",
+              "type": "text",
+              "uuid": "2bbdc72a-64b7-436f-a531-701c37b522ed"
+            },
+            {
+              "key": "investor_password",
+              "value": "Devv@9993",
+              "type": "text",
+              "uuid": "5d195b4d-b0ed-41f0-b998-0e4290fae1cc"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://my.bytefx.com/api/openliveaccount",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "openliveaccount"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Grouplist",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/grouplist",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "grouplist"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Leveragelist",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/leveragelist",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "leveragelist"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Bank Details",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "account_name",
+              "value": "demoaccounttest",
+              "type": "text",
+              "uuid": "8de625e8-715a-4849-ae2b-8b86ec9d54f3"
+            },
+            {
+              "key": "account_no",
+              "value": "12128211212134",
+              "type": "text",
+              "uuid": "5e2eb9ad-c7cb-4dae-8760-635babfed603"
+            },
+            {
+              "key": "ifsc",
+              "value": "DEMO",
+              "type": "text",
+              "uuid": "51f0a255-f893-4568-8c5a-b4584c74f46d"
+            },
+            {
+              "key": "bank_name",
+              "value": "test",
+              "type": "text",
+              "uuid": "1ad20110-9d83-4ba0-83df-81aaca88a443"
+            },
+            {
+              "key": "country",
+              "value": "india",
+              "type": "text",
+              "uuid": "1501e03f-4245-4c4e-b71e-b8e8c8105a41"
+            },
+            {
+              "key": "book_bank",
+              "type": "file",
+              "uuid": "78e2f2da-debc-4223-9070-cfc5bd2dc26c",
+              "src": "/Users/apple/Downloads/visa-mastercard-logo.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://my.bytefx.com/api/addbankdetails",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "addbankdetails"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Bank Details List",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/bankdetailslist",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "bankdetailslist"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ib Monthly Commission",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/ibmonthlycommission",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "ibmonthlycommission"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Clients transaction",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclienttransaction",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclienttransaction"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Top SubIB Performance",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/topearning",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "topearning"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ib Dashboard Data",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/ibdashboarddata",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "ibdashboarddata"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 1",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel1",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 2",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel2",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 3",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel3",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 4",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel4",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 5",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel5",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 6",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel6",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Client Level 7",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/myclientslevel7",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "myclientslevel7"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Commission List",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "from",
+              "value": "2026-02-01",
+              "type": "text",
+              "uuid": "f0e37d78-8b5d-4c66-98a5-85c49445ce9c"
+            },
+            {
+              "key": "to",
+              "value": "2026-02-28",
+              "type": "text",
+              "uuid": "2dd18a0a-0ced-4c10-a0b1-89e578c92fe9"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://my.bytefx.com/api/mycommission",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "mycommission"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request For IB",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ODdhYWVjNC05YTJiLTQ1OGYtYTY1MC02NDFkN2QyOTE5YjMiLCJqdGkiOiI0OWEzM2UzNjA4YjFjMjkzYmRlMDk1NjVmYmZmNDNmMWUwOGExOGU0ZTY2MmI2YzQzODdmMjMwNWEzYmFmNGY3NTBmOGFmNzcwZWQxZTY1NSIsImlhdCI6MTc3MjI4MDE1My4yMDA1NDIsIm5iZiI6MTc3MjI4MDE1My4yMDA1NDQsImV4cCI6MTgwMzgxNjE1My4xODQ2MzYsInN1YiI6IjUiLCJzY29wZXMiOltdfQ.oC0Pm-KfPvYkqFV3x785r10heYIsyKqkPnuTKXB9YTFS-Mq3iUERXti2nKFpmhIiLFWoQLssStxxLDhhjnfjO-5cTxdXo8tBR4OC_21u175g_HfG5TCcF_pig0UD6cVqJS2ce0hwfeZolvqbM2rrQ9cfcYG9wTqp7o-dyg1qgw6nuvFf3nijl8_WmDkwPffZqZfkeVvS9kEzE46DB2cfohMAi8D0jCi6Clw-beOktwaaS_e012jfkwX35DEpLHLT2OChJPA3P49qJUwaVzCJqUZfKXlRP5tmr3jWfTkjyS6K76OjasxcwVbWItzPAo_8-tYvCwUkJtWTDkuu3q6goFnlg44d0FGb4LXwo_G6-J3h4UEuOBEVLhs4ryIczeMS3z5sO__FXWZZI_ovBIUhekUj1P1geTVYg4KYTgHyq8oTeDAsfzzmNbAgtY5i7TYW_qREjCKIbCAv9So0z-xRaMICDPzD7Drell1EERUXBvTRdgFaqVQNwW8k7YdO7sTzJaJoY6tlG7AErKythkJZ_c7NAH6u-MV_JT_9zTgRYqVF7KsHCaGAduC0fm9kqLkTRQRRIB6e5-TL_0wMz7FLW783XU6De6mBs4_Mt3t9Xgm_MbE-1gdtzobGQRfGb_sLA7rEQiUSx3slX1A0o3IlGXZYo0_ECSWKkxC01pNBAII",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://my.bytefx.com/api/ibrequest",
+          "protocol": "https",
+          "host": [
+            "my",
+            "bytefx",
+            "com"
+          ],
+          "path": [
+            "api",
+            "ibrequest"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 /** Page masthead. All copy is passed in so the draw can be re-themed per event. */
 export default function Header({
-  eyebrow = "ByteFX SpinVault Exclusive",
+  eyebrow = "SpinVault Exclusive",
   title = "Grand Draw",
   tagline = ["One Draw", "One Winner", "Provably Fair"],
 }) {

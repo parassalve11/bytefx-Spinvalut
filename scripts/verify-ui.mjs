@@ -17,7 +17,7 @@ const wait = async expression => { for (let n = 0; n < 600; n++) { if (await eva
 const click = text => evaluate(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent.trim()===${JSON.stringify(text)}).click()`);
 const fill = (selector, value) => evaluate(`(()=>{const el=document.querySelector(${JSON.stringify(selector)});Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,${JSON.stringify(value)});el.dispatchEvent(new Event('input',{bubbles:true}));})()`);
 const screenshot = async name => { const result = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true }); fs.writeFileSync(`.review/${name}.png`, Buffer.from(result.data, 'base64')); };
-const ready = () => wait(`document.querySelector('.draw-stage') && !document.querySelector('.workspace-loading') && !document.querySelector('.pool-update-status [role]') && !document.querySelector('.draw-button').disabled`);
+const ready = () => wait(`document.querySelector('.draw-stage') && !document.querySelector('.workspace-loading') && !document.querySelector('.pool-update-spinner') && !document.querySelector('.pool-error') && !document.querySelector('.draw-button').disabled`);
 await send('Runtime.enable'); await send('Page.enable');
 await send('Network.deleteCookies', { name: 'spinvault_session', url: base });
 await send('Page.addScriptToEvaluateOnNewDocument', { source: `const nativeFetch=window.fetch;window.fetch=async function(...args){const r=await nativeFetch(...args);if(args[0]==='/api/draws'&&args[1]?.method==='POST'&&r.ok)window.__recordedDraw=await r.clone().json();return r;};` });
@@ -57,15 +57,15 @@ try {
     if (width === 1440 || width === 390) await screenshot('workspace-' + width);
   }
   await evaluate(`document.querySelector('.level-chip:not(.level-chip-all)').click()`);
-  await wait(`document.querySelector('.pool-update-status [role="status"]')`);
+  await wait(`document.querySelector('.pool-update-spinner')`);
   assert.equal(await evaluate(`document.querySelector('.draw-stage') === window.__stage && document.querySelector('.draw-button').disabled`), true);
   await ready();
   assert.ok((await evaluate(`document.querySelector('.level-selector').textContent`)).includes('1 client selected'));
   assert.equal(await evaluate(`document.querySelectorAll('.level-chip').length`), 4);
   await click('All clients'); await ready();
-  await click('Refresh clients'); await wait(`document.querySelector('.pool-update-status [role="status"]')`); await ready();
+  await click('Refresh clients'); await wait(`document.querySelector('.pool-update-spinner')`); await ready();
   await fetch('http://127.0.0.1:4112/__test/config', { method: 'POST', body: JSON.stringify({ failLevel: 7 }) });
-  await click('Refresh clients'); await wait(`document.querySelector('.pool-update-status [role="alert"]')`);
+  await click('Refresh clients'); await wait(`document.querySelector('.pool-error')`);
   assert.equal(await evaluate(`document.querySelector('.draw-stage') === window.__stage && document.querySelector('.draw-button').disabled`), true);
   await fetch('http://127.0.0.1:4112/__test/config', { method: 'POST', body: JSON.stringify({ failLevel: null }) });
   await click('Try again'); await ready();
@@ -95,7 +95,7 @@ try {
     assert.equal(await evaluate(`document.querySelector('.client-status').textContent`), 'Active');
     const winnerText = await evaluate(`document.querySelector('.winner-dialog').textContent`);
     assert.ok(winnerText.includes('India'));
-    assert.ok(winnerText.includes('(phone)'), 'country should be inferred from phone even when masked');
+    // CountryLabel no longer prints a "(phone)" suffix; the inferred country name itself is checked above.
     if (mode === 'Grand Finale') assert.ok(!winnerText.includes('9876543210') && !winnerText.includes('100101'));
     else assert.ok(winnerText.includes('+919876543210') && winnerText.includes('100101'));
     await new Promise(resolve => setTimeout(resolve, 1500));

@@ -75,7 +75,7 @@ export default function Input({
 
       <div
         className={clsx(
-          "group flex items-center gap-2 rounded-lg border border-white/[0.07] bg-black/15 py-2 pl-3 pr-2",
+          "group flex items-center gap-2 rounded-lg border border-white/[0.12] bg-bg-field py-2 pl-3 pr-2",
           "transition focus-within:border-accent-from/50 focus-within:shadow-[0_0_0_3px_rgba(16,224,160,0.12)]",
           disabled && "cursor-not-allowed",
         )}
@@ -143,7 +143,7 @@ export default function Input({
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-from/70",
                   selected
                     ? "border-accent-from/25 bg-accent-from/10 text-accent-from"
-                    : "border-white/10 bg-white/[0.03] text-text-muted hover:border-accent-from/40 hover:text-text-primary",
+                    : "border-white/[0.12] bg-bg-field text-text-muted hover:border-accent-from/40 hover:text-text-primary",
                 )}
               >
                 {preset.label}
@@ -164,7 +164,7 @@ function StepperButton({ label, onClick, dir, disabled }) {
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        "flex h-[15px] w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]",
+        "flex h-[15px] w-7 items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.06]",
         "text-text-muted transition hover:border-accent-from/40 hover:text-accent-from active:scale-95",
         "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-white/10 disabled:hover:text-text-muted",
       )}

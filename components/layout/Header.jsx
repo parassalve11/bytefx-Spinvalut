@@ -12,7 +12,7 @@ export default function Header({
         {title}
       </h1>
 
-      <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-text-muted">
+      <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-text-primary/80 [text-shadow:0_1px_12px_rgba(7,9,15,0.8)]">
         {tagline.map((part, i) => (
           <span key={part} className="flex items-center gap-3">
             {i > 0 ? <span className="h-1 w-1 rounded-full bg-accent-from/60" /> : null}

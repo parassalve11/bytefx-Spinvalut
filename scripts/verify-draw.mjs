@@ -5,14 +5,8 @@
  */
 import assert from "node:assert/strict";
 
-import { offsetForIndex, indexForOffset, spinTarget, PITCH } from "../lib/reel.js";
-import {
-  spinKeyframes,
-  spinTimes,
-  spinDuration,
-  MIN_FINAL_STEPS,
-  MAX_FINAL_STEPS,
-} from "../lib/spinAnimation.js";
+import { offsetForIndex, indexForOffset, spinPlan, PITCH, WINDOW_RADIUS } from "../lib/reel.js";
+import { spinMotion, spinDuration, MIN_FINAL_STEPS, MAX_FINAL_STEPS } from "../lib/spinAnimation.js";
 import { applyCriteria, parseCriteria, DEFAULT_CRITERIA } from "../lib/eligibility.js";
 import { fairPick } from "../lib/random.js";
 import { maskId, maskClientId, maskEmail, maskParticipant } from "../lib/mask.js";
@@ -20,55 +14,71 @@ import { participants } from "./fixtures/participants.js";
 
 let checks = 0;
 const ok = (label) => { checks++; console.log(`  ok  ${label}`); };
+const mod = (n, m) => ((n % m) + m) % m;
 
 // 1. Landing is exact for every pool size and every winner, from every start.
 console.log("\nreel landing");
-for (let len = 1; len <= 40; len++) {
-  for (let winner = 0; winner < len; winner++) {
+let swapped = 0;
+for (let len = 1; len <= 180; len++) {
+  const winners = len <= 40 ? Array.from({ length: len }, (_, i) => i) : [0, 1, len >> 1, len - 2, len - 1, (len * 7) % len];
+  for (const winner of winners) {
     for (const start of [0, 1, 7, len, len * 3 + 5, 999]) {
       for (const minTravel of [42, 84]) {
-        const { anchor, target } = spinTarget(start, winner, len, minTravel);
+        const { anchor, target, order } = spinPlan(start, winner, len, minTravel);
+        const landed = order ? order[mod(target, len)] : mod(target, len);
 
-        assert.equal(target % len, winner, `target must resolve to the winner (len=${len})`);
-        assert.equal(anchor % len, ((start % len) + len) % len, "re-anchor must be invisible");
-        assert.ok(target > anchor, "the reel must travel forwards");
-        assert.ok(target - anchor >= Math.min(minTravel, 2 * len), "must travel far enough");
+        assert.equal(landed, winner, `the card under the marker must be the winner (len=${len})`);
+        assert.equal(anchor % len, mod(start, len), "re-anchor must be invisible");
+        assert.ok(target - anchor >= minTravel, "must travel far enough");
+        assert.equal(indexForOffset(offsetForIndex(target)), target, "the end offset decodes back to the target");
 
-        for (let steps = MIN_FINAL_STEPS; steps <= MAX_FINAL_STEPS; steps++) {
-          const frames = spinKeyframes(offsetForIndex(anchor), offsetForIndex(target), steps);
-          assert.equal(frames[0], offsetForIndex(anchor), "the spin starts where the reel already is");
-          assert.equal(frames.at(-1), offsetForIndex(target), "the tail length must not move the target");
-          assert.ok(
-            frames.every((v, i) => i === 0 || v < frames[i - 1]),
-            `phases move forward without overshooting (steps=${steps})`,
-          );
+        if (order) {
+          swapped++;
+          assert.equal(new Set(order).size, len, "the reorder is a permutation: every client keeps one card");
+          for (let d = -WINDOW_RADIUS; d <= WINDOW_RADIUS; d++) {
+            const k = mod(anchor + d, len);
+            assert.equal(order[k], k, "nothing on screen changes when the spin starts");
+          }
+          assert.ok(target - anchor <= Math.ceil(minTravel * 1.5), "large pools keep a readable travel distance");
         }
-
-        // The offset that the animation ends on must decode back to the winner.
-        assert.equal(indexForOffset(offsetForIndex(target)) % len, winner);
       }
     }
   }
 }
-ok("winner lands dead centre for pools of 1..40, every winner, every start");
+assert.ok(swapped > 0, "large pools exercise the reorder path");
+ok("winner lands dead centre for pools of 1..180, every start, with bounded travel on large pools");
 
-// 1b. The randomised finish changes the presentation and nothing else.
-console.log("\nrandomised finish");
-for (let steps = MIN_FINAL_STEPS; steps <= MAX_FINAL_STEPS; steps++) {
-  const times = spinTimes(steps);
-  assert.equal(times.length, 5);
-  assert.equal(times[0], 0);
-  assert.equal(times.at(-1), 1);
-  assert.ok(times.every((t, i) => i === 0 || t > times[i - 1]), `keyframe times must increase (steps=${steps})`);
-  assert.ok(spinDuration(4.8, steps) > 0);
+// 1b. The motion curve: starts at 0, ends exactly at 1, only moves forward, never jerks.
+console.log("\nspin motion");
+for (const [base, travels] of [[4.8, [42, 55, 63]], [7.4, [84, 100, 126]]]) {
+  for (const travel of travels) {
+    for (let steps = MIN_FINAL_STEPS; steps <= MAX_FINAL_STEPS; steps++) {
+      const duration = spinDuration(base, steps);
+      const { ease, launchEnd, slowFrom, topSpeed } = spinMotion(travel, duration, steps);
+      assert.equal(ease(0), 0);
+      assert.equal(ease(1), 1, "the finish never moves the target");
+      assert.ok(launchEnd > 0 && launchEnd < slowFrom && slowFrom < 1, "phases are ordered");
+      assert.ok(topSpeed * PITCH < 7000, `top speed stays trackable (${Math.round(topSpeed * PITCH)}px/s)`);
+      const frames = Math.round(duration * 240);
+      let previous = 0;
+      let previousSpeed = 0;
+      for (let i = 1; i <= frames; i++) {
+        const d = ease(i / frames);
+        assert.ok(d >= previous - 1e-12, "the strip only moves forwards");
+        const speed = ((d - previous) * travel * frames) / duration;
+        assert.ok(Math.abs(speed - previousSpeed) < 1, `speed changes smoothly (steps=${steps})`);
+        previous = d;
+        previousSpeed = speed;
+      }
+      assert.ok(previousSpeed < 0.5, "the reel is almost still when it lands");
+    }
+  }
 }
-// A longer tail gets more of the timeline and more wall-clock time to spend it.
-assert.ok(spinTimes(8).at(-2) < spinTimes(1).at(-2), "more steps means the settle starts earlier");
 assert.ok(spinDuration(4.8, 8) > spinDuration(4.8, 1), "more steps means a longer spin");
 for (const bad of [0, 9, 3.5, -1, "3", null]) {
-  assert.throws(() => spinKeyframes(-84, -8000, bad), RangeError, `finalSteps ${bad} must be rejected`);
+  assert.throws(() => spinMotion(50, 4.8, bad), RangeError, `finalSteps ${bad} must be rejected`);
 }
-ok(`tail lengths ${MIN_FINAL_STEPS}..${MAX_FINAL_STEPS} land on the same target, out-of-range rejected`);
+ok(`continuous speed for finishes ${MIN_FINAL_STEPS}..${MAX_FINAL_STEPS}, out-of-range rejected`);
 
 // The server picks the tail with the same CSPRNG helper; check its range.
 const tails = new Set();

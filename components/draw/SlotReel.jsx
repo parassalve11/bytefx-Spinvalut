@@ -12,10 +12,10 @@ export default function SlotReel({ pool, x, activeIndex, phase = "idle", isSpinn
   const blurRef = useRef(null);
   const markerRef = useRef(null);
   const velocity = useVelocity(x);
-  const opacity = useTransform(velocity, (v) => reduced ? 1 : 1 - Math.min(Math.abs(v) / 12000, 0.25));
+  const opacity = useTransform(velocity, (v) => reduced ? 1 : 1 - Math.min(Math.abs(v) / 30000, 0.12));
   useMotionValueEvent(velocity, "change", (v) => {
     // Horizontal blur only; no per-frame React state or layout reads.
-    const amount = reduced || !isSpinning ? 0 : Math.min(Math.abs(v) / 1800, 3.5);
+    const amount = reduced || !isSpinning ? 0 : Math.min(Math.abs(v) / 2400, 2.4);
     blurRef.current?.setAttribute("stdDeviation", `${amount} 0`);
   });
 

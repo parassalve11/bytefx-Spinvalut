@@ -45,9 +45,7 @@ function ParticipantCard({
       className={clsx(
         "participant-card flex h-full select-none flex-col items-center gap-3 rounded-2xl border px-4 py-5 text-center",
         "transition-[transform,box-shadow,border-color,background-color,opacity] duration-300 ease-out",
-        isActive
-          ? "border-accent-from/40 bg-bg-card/90"
-          : "border-white/[0.07] bg-bg-card/55",
+        // Surface, border and glow come from .participant-card in globals.css.
       )}
     >
       <div className="relative">
@@ -74,7 +72,7 @@ function ParticipantCard({
             "truncate text-[15px] font-semibold leading-tight transition-colors",
             isActive
               ? "text-text-primary"
-              : "text-text-primary/80",
+              : "text-text-primary/90",
           )}
           title={p.name}
         >
@@ -97,13 +95,13 @@ function ParticipantCard({
         </div>
       </div>
 
-      <div className="mt-auto w-full border-t border-white/[0.06] pt-3">
+      <div className="mt-auto w-full border-t border-white/[0.09] pt-3">
         <p
           className={clsx(
             "text-sm font-bold tabular-nums transition-colors",
             isActive
               ? "text-gradient"
-              : "text-text-primary/70",
+              : "text-text-primary/85",
           )}
         >
           {hasDeposit

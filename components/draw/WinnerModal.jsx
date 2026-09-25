@@ -102,7 +102,7 @@ export default function WinnerModal({ open, winner, receipt, onClose, onDrawAgai
           >
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-[radial-gradient(50%_100%_at_50%_100%,rgba(16,224,160,0.28)_0%,transparent_100%)]"
+              className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(60%_100%_at_50%_0%,rgba(16,224,160,0.26)_0%,transparent_100%)]"
             />
 
             <div className="relative">

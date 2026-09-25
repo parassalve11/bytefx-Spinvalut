@@ -34,6 +34,7 @@ export default function DrawWorkspace({ profile }) {
     totalCount,
     poolStatus,
     hasLoaded,
+    loadStep,
     poolError,
     counts,
     capabilities,
@@ -65,7 +66,7 @@ export default function DrawWorkspace({ profile }) {
     <MotionConfig reducedMotion="user">
       <DrawBackground phase={status} />
       {!hasLoaded ? (
-        <WorkspaceLoading error={poolStatus === "error" ? poolError : null} onRetry={() => giveaway && status === "idle" ? refreshClients() : window.location.reload()} />
+        <WorkspaceLoading step={loadStep} error={poolStatus === "error" ? poolError : null} onRetry={() => giveaway && status === "idle" ? refreshClients() : window.location.reload()} />
       ) : (
       <>
       <div className="workspace-toolbar">
@@ -80,10 +81,6 @@ export default function DrawWorkspace({ profile }) {
         <Header title={giveaway?.name && giveaway.name !== "My giveaway" ? giveaway.name : "Grand Draw"} />
 
         <Panel className="control-deck">
-          <div className="pool-update-status" aria-live="polite" aria-atomic="true">
-            {poolStatus === "loading" ? <span role="status" className="inline-flex items-center gap-2"><span className="pool-update-spinner" aria-hidden="true" />Updating clients…</span> : null}
-            {poolStatus === "error" ? <div role="alert" className="flex flex-wrap items-center gap-3"><span>{poolError}</span><button type="button" onClick={refreshClients} className="font-semibold text-accent-from underline underline-offset-4">Try again</button></div> : null}
-          </div>
           <EligibilityPanel
             criteria={criteria}
             onChange={updateCriteria}

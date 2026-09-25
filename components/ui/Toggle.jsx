@@ -13,7 +13,7 @@ export default function Toggle({ label, description, checked, onChange, id, disa
         disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
         checked
           ? "border-accent-from/35 bg-accent-from/[0.06]"
-          : "border-white/[0.08] bg-bg-card/50 hover:border-white/15",
+          : "border-white/[0.14] bg-bg-field hover:border-white/25",
       )}
     >
       <span className="min-w-0">
@@ -40,7 +40,7 @@ export default function Toggle({ label, description, checked, onChange, id, disa
           className={clsx(
             "block h-4 w-7 rounded-full transition-colors",
             "peer-focus-visible:ring-2 peer-focus-visible:ring-accent-from/70 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-bg-panel",
-            checked ? "bg-accent-gradient" : "bg-white/[0.12]",
+            checked ? "bg-accent-gradient" : "bg-white/[0.2]",
           )}
         />
         <span

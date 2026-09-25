@@ -15,10 +15,12 @@ module.exports = {
     extend: {
       opacity: FULL_OPACITY,
       colors: {
+        // Surfaces follow the winner card: slate with a teal cast, not near-black.
         bg: {
           base: "#07090F",
-          panel: "#12131C",
-          card: "#1A1C28",
+          panel: "#10161E",
+          card: "#172230",
+          field: "#111A22",
         },
         accent: {
           from: "#10E0A0",
@@ -27,7 +29,7 @@ module.exports = {
         },
         text: {
           primary: "#F5F7FA",
-          muted: "#8A90A6",
+          muted: "#9EABBD",
         },
       },
       fontFamily: {

@@ -90,3 +90,13 @@ Run `npm run verify:clients` for normalization, phone masking, network counts, p
 The live all-level loader was verified with 139 unique clients (2, 3, and 134 in Levels 1–3). Empty levels use HTTP 200 with JSON `status: 301`, `msg: "No data found."`, and `data: {}`; this specific response is accepted as empty. Other errors still fail the entire load.
 
 App images use WebP: lossless ByteFX logo and app icon, plus optimized background and trophy. Original artwork is retained locally. Country inference uses [libphonenumber-js metadata](https://github.com/catamphetamine/libphonenumber-js); it identifies the phone numbering-plan country, not the person’s current location.
+
+## September 25 update
+
+- **Loading screen fixed.** The full-screen loader's card and logo were painted underneath the fixed background (the loading `<main>` wasn't positioned, so its `z-index` did nothing); only the animated bar showed. `.draw-page` is now positioned. The loader shows the real first-load steps from `useDraw` (`loadStep`: giveaway → pending draw → clients), a "large networks take longer" hint after 8 s, and a titled error state with retry.
+- **Lighter draw page.** Surfaces now use the winner card's look (tokens in `:root` of `globals.css`: `--surface`, `--surface-field`, `--surface-wash`, `--line-accent`, `--glow`). Panels, reel, reel cards, chips, inputs, account card and toolbar use them; the arena image is less dimmed; muted text is lighter (`#9EABBD`). The winner card's colours are unchanged; the hard edge in its top glow was removed.
+- **Update status moved.** "Updating clients…" and the retry message now sit in the eligibility header instead of a reserved strip at the top of the panel. `verify-ui.mjs` selectors changed to `.pool-update-spinner` / `.pool-error`.
+- **Spin motion rewritten (`lib/spinAnimation.js`).** One continuous speed curve (launch → cruise → brake → crawl) replaces the four keyframe segments, which stopped the reel dead before the tail and then lurched forward. `finalSteps` (1–8) still varies the finish, now as the number of cards in the slow crawl.
+- **Bounded travel (`lib/reel.js`, `spinPlan`).** The old "at least two full loops" rule sent a 139-client reel 280–420 cards in under five seconds. Travel is now `minTravel`–`1.5×minTravel` cards; when the winner's natural position is further, it swaps places with an off-screen card for the duration of the spin. Selection, the recorded winner and the pool are untouched; `verify-draw.mjs` checks landing for pools 1–180 and that nothing on screen changes at spin start.
+- The landed card now holds for 900 ms with a pulse before the winner card opens.
+- `.env.example` no longer contains a real database URL. `next.config.mjs` declares `images.qualities`.

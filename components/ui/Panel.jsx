@@ -5,7 +5,7 @@ export default function Panel({ as: Tag = "section", className, children, ...res
   return (
     <Tag
       className={clsx(
-        "relative rounded-2xl border border-white/5 bg-bg-panel/80 backdrop-blur-xl",
+        "relative rounded-2xl border border-accent-from/20 bg-bg-panel",
         "shadow-[0_24px_70px_-40px_rgba(0,0,0,0.9)]",
         className,
       )}

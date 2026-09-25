@@ -14,7 +14,7 @@ export default function ModeTabs({ mode, onChange, disabled }) {
       <div
         role="group"
         aria-label="Draw mode"
-        className="inline-flex rounded-full border border-white/[0.08] bg-bg-card/60 p-1"
+        className="inline-flex rounded-full border border-accent-from/20 bg-bg-panel p-1 shadow-[0_22px_60px_-32px_rgba(0,0,0,0.85)]"
       >
         {modes.map((m) => {
           const selected = m.id === mode;
@@ -45,7 +45,7 @@ export default function ModeTabs({ mode, onChange, disabled }) {
         })}
       </div>
 
-      <p className="text-xs text-text-muted">{MODES[mode]?.hint}</p>
+      <p className="text-xs text-text-primary/80 [text-shadow:0_1px_12px_rgba(7,9,15,0.8)]">{MODES[mode]?.hint}</p>
     </div>
   );
 }
